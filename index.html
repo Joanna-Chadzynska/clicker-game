@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Title</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+			integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<section class="container">
+			<h2>CLICKER GAME</h2>
+			<div class="row jumbotron">
+				<a href="" class="btn btn-primary col-6 clicker">Click</a>
+
+				<aside class="score col-6">
+					<h2>Score</h2>
+					<ul class="list-group">
+						<li
+							class="list-group-item d-flex justify-content-between align-items-center"
+						>
+							Total points
+							<span class="badge badge-primary badge-pill" id="total-points"
+								>0</span
+							>
+						</li>
+						<li
+							class="list-group-item d-flex justify-content-between align-items-center"
+						>
+							autopoints / s
+
+							<span
+								class="badge badge-primary badge-pill"
+								id="points-per-second"
+								>0</span
+							>
+						</li>
+						<li
+							class="list-group-item d-flex justify-content-between align-items-center"
+						>
+							Premium points
+							<span class="badge badge-primary badge-pill" id="premium-points"
+								>0</span
+							>
+						</li>
+					</ul>
+				</aside>
+
+				<div class="total-score">
+					Total score:
+					<span id="total-score">0</span>
+				</div>
+			</div>
+		</section>
+
+		<script src="js/Clicker.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
+`
