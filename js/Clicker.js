@@ -11,10 +11,15 @@ class Clicker {
 		this.autoClick = document.getElementById("points-per-second");
 		this.bonus = document.getElementById("premium-points");
 		this.totalScoreSpan = document.getElementById("total-score");
+		this.showTotalScore = document.querySelector(".modal-body");
+		this.endGameBtn = document.getElementById("finish-game");
+		this.endGameBtn.addEventListener("click", this.stopGame.bind(this));
+		this.reloadGame = document.getElementById("reload-game");
+		this.reloadGame.addEventListener("click", this.playAgain.bind(this));
+		this.isFinished = false;
 		this.autoPoints = 0;
-		this.cp = 0;
+
 		this.clickPoints = this.autoPoints;
-		//premium
 		this.bonusPremiumPoints = 0;
 	}
 
@@ -39,8 +44,6 @@ class Clicker {
 		}
 
 		this.displayScore();
-		// this.totalScore = this.score + this.clickPoints + this.bonusPremiumPoints;
-		// this.totalScoreSpan.textContent = this.totalScore;
 	}
 
 	addAutoClickPoints() {
@@ -49,10 +52,11 @@ class Clicker {
 			this.displayAutoClick();
 			this.addPremiumPoints();
 
-			// if (!this.isClicked) {
-			// 	clearInterval(t);
-			// }
+			if (this.isFinished) {
+				clearInterval(t);
+			}
 		}, 1000);
+		return t;
 	}
 
 	addPremiumPoints() {
@@ -62,5 +66,20 @@ class Clicker {
 			this.bonusPremiumPoints += 500;
 			this.displayBonus();
 		}
+	}
+
+	displayTotalScore() {
+		this.isFinished = !this.isFinished;
+		this.totalScore =
+			this.score + this.clickPoints + this.bonusPremiumPoints + this.autoPoints;
+		this.showTotalScore.textContent = this.totalScore;
+	}
+
+	stopGame() {
+		this.displayTotalScore();
+	}
+
+	playAgain() {
+		window.location.reload();
 	}
 }
