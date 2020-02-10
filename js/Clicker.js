@@ -2,25 +2,26 @@ class Clicker {
 	constructor(score = 0) {
 		this.score = score;
 		this.totalScore = 0;
-		this.board = document.querySelector(".clicker");
-		this.board.addEventListener("click", (e) => {
+		this.isFinished = false;
+		this.autoPoints = 0;
+		this.clickPoints = this.autoPoints;
+		this.bonusPremiumPoints = 0;
+
+		document.querySelector(".clicker").addEventListener("click", (e) => {
 			e.preventDefault();
 			this.increaseScore();
 		});
 		this.totalPoints = document.getElementById("total-points");
 		this.autoClick = document.getElementById("points-per-second");
 		this.bonus = document.getElementById("premium-points");
-		this.totalScoreSpan = document.getElementById("total-score");
 		this.showTotalScore = document.querySelector(".modal-body");
-		this.endGameBtn = document.getElementById("finish-game");
-		this.endGameBtn.addEventListener("click", this.stopGame.bind(this));
-		this.reloadGame = document.getElementById("reload-game");
-		this.reloadGame.addEventListener("click", this.playAgain.bind(this));
-		this.isFinished = false;
-		this.autoPoints = 0;
 
-		this.clickPoints = this.autoPoints;
-		this.bonusPremiumPoints = 0;
+		document
+			.getElementById("finish-game")
+			.addEventListener("click", this.stopGame.bind(this));
+		document
+			.getElementById("reload-game")
+			.addEventListener("click", this.playAgain.bind(this));
 	}
 
 	displayScore() {
